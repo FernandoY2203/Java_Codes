@@ -17,4 +17,9 @@ public class Product {
     public void RemoverProdutos(int quanti){
         qtd -= quanti;
     }
+    
+    @Override
+    public String toString(){
+        return (nome + ", $" + String.format("%.2f", preco) + ", " + qtd + " Unidades, " + "Total: $" + String.format("%.2f", ValorTotalNoEstoque()));
+    }
 }

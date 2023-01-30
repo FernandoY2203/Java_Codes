@@ -18,17 +18,17 @@ public class Program {
         System.out.print("Quantidade em Estoque: ");
         prd1.qtd = sc.nextInt();
         
-        System.out.println("Informação do Produto: " + prd1.nome + ", $" + prd1.preco + ", " + prd1.qtd + " Unidades, " + "Total: $" + prd1.ValorTotalNoEstoque());
+        System.out.println("Informação do Produto: " + prd1.toString());
 
         System.out.print("Entre com o numero de produtos a serem adicionados no estoque: ");
         prd1.AdicionarProdutos(sc.nextInt());
 
-        System.out.println("Informação Atualizada: " + prd1.nome + ", $" + prd1.preco + ", " + prd1.qtd + " Unidades, " + "Total: $" + prd1.ValorTotalNoEstoque());
+        System.out.println("Informação Atualizada: " + prd1.toString());
 
         System.out.print("Entre com o numero de produtos a serem removidos do estoque: ");
         prd1.RemoverProdutos(sc.nextInt());
 
-        System.out.println("Informação Atualizada: " + prd1.nome + ", $" + prd1.preco + ", " + prd1.qtd + " Unidades, " + "Total: $" + prd1.ValorTotalNoEstoque());
+        System.out.println("Informação Atualizada: " + prd1.toString());
 
         sc.close();
     }
