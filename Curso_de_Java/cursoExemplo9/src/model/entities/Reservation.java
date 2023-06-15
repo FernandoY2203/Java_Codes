@@ -48,7 +48,7 @@ public class Reservation {
     }
     
     public void updateDates(LocalDate in, LocalDate out) throws DomainException{
-        LocalDate now = LocalDate.parse("2019-05-18") /*LocalDate.now()*/;
+        LocalDate now = LocalDate.now();
         
         if(in.isBefore(now) || out.isBefore(now)){
             throw new DomainException("Reservation dates for update must be future dates");
