@@ -6,23 +6,17 @@ import jogodetabuleiro.Tabuleiro;
 import xadrez.Cor;
 import xadrez.PecaDeXadrez;
 
-public class Rei extends PecaDeXadrez{
+public class Bispo extends PecaDeXadrez{
     
-    public Rei(Cor cor, Tabuleiro tabuleiro) {
+    public Bispo(Cor cor, Tabuleiro tabuleiro) {
         super(cor, tabuleiro);
     }
     
     //----------------------------------------------------------------------------------------------------------------//
-
-    private boolean podeMover(Posicao posicao){
-        PecaDeXadrez p = (PecaDeXadrez) getTabuleiro().peca(posicao);
-        
-        return (p == null || p.getCor() != getCor());
-    }
     
     @Override
     public String toString() {
-        return "R";
+        return "B";
     }
 
     @Override
@@ -31,59 +25,51 @@ public class Rei extends PecaDeXadrez{
         
         Posicao p = new Posicao(0, 0);
         
-        //Cima
-        p.setValores(posicao.getLinha() - 1, posicao.getColuna());
-        
-        if(getTabuleiro().posicaoExiste(p) && podeMover(p)){
-            mat[p.getLinha()][p.getColuna()] = true;
-        }
-        
         //Cima Esquerda
         p.setValores(posicao.getLinha() - 1, posicao.getColuna() - 1);
         
-        if(getTabuleiro().posicaoExiste(p) && podeMover(p)){
+        while(getTabuleiro().posicaoExiste(p) && !getTabuleiro().temUmaPeca(p)){
             mat[p.getLinha()][p.getColuna()] = true;
+            
+            p.setValores(p.getLinha() - 1, p.getColuna() - 1);
         }
-        
-        //Esquerda
-        p.setValores(posicao.getLinha(), posicao.getColuna() - 1);
-        
-        if(getTabuleiro().posicaoExiste(p) && podeMover(p)){
+        if(getTabuleiro().posicaoExiste(p) && haPecaDoOponente(p)){
             mat[p.getLinha()][p.getColuna()] = true;
         }
         
         //Baixo Esquerda
         p.setValores(posicao.getLinha() + 1, posicao.getColuna() - 1);
         
-        if(getTabuleiro().posicaoExiste(p) && podeMover(p)){
+        while(getTabuleiro().posicaoExiste(p) && !getTabuleiro().temUmaPeca(p)){
             mat[p.getLinha()][p.getColuna()] = true;
+            
+            p.setValores(p.getLinha() + 1, p.getColuna() - 1);
         }
-        
-        //Baixo
-        p.setValores(posicao.getLinha() + 1, posicao.getColuna());
-        
-        if(getTabuleiro().posicaoExiste(p) && podeMover(p)){
+        if(getTabuleiro().posicaoExiste(p) && haPecaDoOponente(p)){
             mat[p.getLinha()][p.getColuna()] = true;
         }
         
         //Baixo Direita
         p.setValores(posicao.getLinha() + 1, posicao.getColuna() + 1);
         
-        if(getTabuleiro().posicaoExiste(p) && podeMover(p)){
+        while(getTabuleiro().posicaoExiste(p) && !getTabuleiro().temUmaPeca(p)){
             mat[p.getLinha()][p.getColuna()] = true;
+            
+            p.setValores(p.getLinha() + 1, p.getColuna() + 1);
         }
-        
-        //Direita
-        p.setValores(posicao.getLinha(), posicao.getColuna() + 1);
-        
-        if(getTabuleiro().posicaoExiste(p) && podeMover(p)){
+        if(getTabuleiro().posicaoExiste(p) && haPecaDoOponente(p)){
             mat[p.getLinha()][p.getColuna()] = true;
         }
         
         //Cima Direita
         p.setValores(posicao.getLinha() - 1, posicao.getColuna() + 1);
         
-        if(getTabuleiro().posicaoExiste(p) && podeMover(p)){
+        while(getTabuleiro().posicaoExiste(p) && !getTabuleiro().temUmaPeca(p)){
+            mat[p.getLinha()][p.getColuna()] = true;
+            
+            p.setValores(p.getLinha() - 1, p.getColuna() + 1);
+        }
+        if(getTabuleiro().posicaoExiste(p) && haPecaDoOponente(p)){
             mat[p.getLinha()][p.getColuna()] = true;
         }
         

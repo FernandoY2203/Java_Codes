@@ -1,7 +1,10 @@
 package application;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import xadrez.Cor;
 import xadrez.PartidaDeXadrez;
 import xadrez.PecaDeXadrez;
@@ -51,13 +54,30 @@ public class UI {
         }
     }
     
-    public static void imprimirPartida(PartidaDeXadrez partida){
+    public static void imprimirPartida(PartidaDeXadrez partida, List<PecaDeXadrez> capturada){
         imprimiTabuleiro(partida.getPecas());
         
         System.out.println();
         
+        imprimirPecaCapturada(capturada);
+        
+        System.out.println();
+        
         System.out.println("Turno: " + partida.getTurno());
-        System.out.println("Jogador Atual: " + partida.getJogadorAtual());
+        
+        if(!partida.getXequeMate()){
+            System.out.println("Jogador Atual: " + partida.getJogadorAtual());
+        
+            if(partida.getXeque()){
+                System.out.println();
+                System.out.println("XEQUE!");
+            }
+        }
+        else{
+            System.out.println();
+            System.out.println("XEQUE MATE!!");
+            System.out.println("Vencedor: " + partida.getJogadorAtual());
+        }
     }
 
     public static void imprimiTabuleiro(PecaDeXadrez[][] pecas) {
@@ -103,5 +123,22 @@ public class UI {
         }
 
         System.out.print(" ");
+    }
+    
+    private static void imprimirPecaCapturada(List<PecaDeXadrez> capturada){
+        List<PecaDeXadrez> branco = capturada.stream().filter(x -> x.getCor() == Cor.WHITE).collect(Collectors.toList());
+        List<PecaDeXadrez> preto = capturada.stream().filter(x -> x.getCor() == Cor.BLACK).collect(Collectors.toList());
+        
+        
+        System.out.println("Peças Capturadas: ");
+        System.out.print("Brancas: ");
+        System.out.print(ANSI_WHITE);
+        System.out.println(Arrays.toString(branco.toArray()));
+        System.out.print(ANSI_RESET);
+        
+        System.out.print("Pretas: ");
+        System.out.print(ANSI_YELLOW);
+        System.out.println(Arrays.toString(preto.toArray()));
+        System.out.print(ANSI_RESET);
     }
 }
