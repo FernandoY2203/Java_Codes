@@ -6,7 +6,7 @@ import jogodetabuleiro.Posicao;
 import jogodetabuleiro.Tabuleiro;
 
 public abstract class PecaDeXadrez extends Peca{
-    private Cor cor;
+    private final Cor cor;
     private Integer contadorDeMovimento = 0;
     
     //----------------------------------------------------------------------------------------------------------------//
