@@ -13,12 +13,14 @@ import com.cursojava.project2_WebServices.entities.Order;
 import com.cursojava.project2_WebServices.entities.OrderItem;
 import com.cursojava.project2_WebServices.entities.Payment;
 import com.cursojava.project2_WebServices.entities.Product;
+import com.cursojava.project2_WebServices.entities.Role;
 import com.cursojava.project2_WebServices.entities.User;
 import com.cursojava.project2_WebServices.entities.enums.OrderStatus;
 import com.cursojava.project2_WebServices.repositories.CategoryRepository;
 import com.cursojava.project2_WebServices.repositories.OrderItemRepository;
 import com.cursojava.project2_WebServices.repositories.OrderRepository;
 import com.cursojava.project2_WebServices.repositories.ProductRepository;
+import com.cursojava.project2_WebServices.repositories.RoleRepository;
 import com.cursojava.project2_WebServices.repositories.UserRepository;
 
 @Configuration
@@ -35,15 +37,23 @@ public class TestConfig implements CommandLineRunner{
 	private ProductRepository productRepository;
 	@Autowired
 	private OrderItemRepository orderItemRepository;
+	@Autowired
+	private RoleRepository roleRepository;
 	
 	//------------------------------------------------------------------------------------//
 
 	@Override
 	public void run(String... args) throws Exception {
-		User u1 = new User(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
-		User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
+		User u1 = new User(null, "Maria Brown", "maria@gmail.com", "988888888", "User", "123us");
+		User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "Admin", "123ad");
 		
 		userRepository.saveAll(Arrays.asList(u1, u2));
+		
+		
+		Role r1 = new Role(null, "USERS");
+		Role r2 = new Role(null, "MANAGERS");
+		
+		roleRepository.saveAll(Arrays.asList(r1, r2));
 		
 		
 		Order o1 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"), OrderStatus.PAID, u1);
@@ -68,6 +78,7 @@ public class TestConfig implements CommandLineRunner{
 		
 		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 		
+		
 		OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
 		OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
 		OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
@@ -75,9 +86,11 @@ public class TestConfig implements CommandLineRunner{
 		
 		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 		
+		
 		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
 		
 		o1.setPayment(pay1);
+		
 		orderRepository.save(o1);
 		
 		//------------------------------------------------------------------------------------//
@@ -91,5 +104,10 @@ public class TestConfig implements CommandLineRunner{
 		
 		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 		
+		
+		u1.getRoles().add(r1);
+		u2.getRoles().add(r2);
+		
+		userRepository.saveAll(Arrays.asList(u1, u2));
 	}
 }
