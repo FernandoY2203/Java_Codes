@@ -1,0 +1,11 @@
+spring:
+  datasource: # Configuração do Banco de Dados
+      driver-class-name: com.mysql.cj.jdbc.Driver # Driver do conector do banco de dados
+      url: jdbc:mysql://localhost:3306/banco_teste?useTimezone=true&serverTimezone=UTC # URL do banco
+      username: Yuji 
+      password: yuji2203
+  jpa: # Configuração do JPA
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+      

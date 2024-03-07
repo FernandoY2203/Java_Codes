@@ -13,7 +13,7 @@ public class JWTService {
 	private String jwtSingInKey;
 
 	private Claims extractAllClaims(String token) {
-		return Jwts
+		return Jwts;
 	}
 
 	private <T> T extractClaim(String token, Function<Claims, T> claimsResolvers) {
