@@ -1,20 +1,13 @@
 package br.com.yuji.DesafioDIOPadroesDeProjeto.services.impl;
 
 import br.com.yuji.DesafioDIOPadroesDeProjeto.config.MapperConfig;
-import br.com.yuji.DesafioDIOPadroesDeProjeto.models.Address;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.models.ParkingLot;
-import br.com.yuji.DesafioDIOPadroesDeProjeto.models.Telephone;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.models.Vehicle;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.models.dtos.ParkingLotDTO;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.models.dtos.VehicleDTO;
-import br.com.yuji.DesafioDIOPadroesDeProjeto.models.enums.VehicleType;
-import br.com.yuji.DesafioDIOPadroesDeProjeto.repositories.AddressRepository;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.repositories.ParkingLotRepository;
-import br.com.yuji.DesafioDIOPadroesDeProjeto.repositories.TelephoneRepository;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.repositories.VehicleRepository;
-import br.com.yuji.DesafioDIOPadroesDeProjeto.services.ParkingLotService;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.services.VehicleService;
-import br.com.yuji.DesafioDIOPadroesDeProjeto.services.ViaCepService;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.services.exceptions.DatabaseException;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.services.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;

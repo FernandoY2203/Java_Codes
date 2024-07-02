@@ -3,7 +3,6 @@ package br.com.yuji.DesafioDIOPadroesDeProjeto.services.impl;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.config.MapperConfig;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.models.Address;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.models.ParkingLot;
-import br.com.yuji.DesafioDIOPadroesDeProjeto.models.Telephone;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.models.dtos.ParkingLotDTO;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.repositories.AddressRepository;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.repositories.ParkingLotRepository;
@@ -17,8 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.logging.Logger;

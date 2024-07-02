@@ -1,6 +1,5 @@
 package br.com.yuji.DesafioDIOPadroesDeProjeto.controllers;
 
-import br.com.yuji.DesafioDIOPadroesDeProjeto.models.ParkingLot;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.models.dtos.ParkingLotDTO;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.models.dtos.TelephoneDTO;
 import br.com.yuji.DesafioDIOPadroesDeProjeto.services.ParkingLotService;
