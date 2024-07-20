@@ -11,23 +11,15 @@ O objetivo deste projeto foi reforçar os pilares da orientação a objetos dese
 
 Exemplo de inserção de objetos para poder utilizar a API:
 
-### Agencia
-```
-{
-  "id": 0 // Não é necessario mexer, pois possui auto incremento.
-}
-```
 
 ### Cliente
 ```
 {
-  "id": 0, // Não mexer.
   "nome": "NomeTeste",
   "sobrenome": "SobrenomeTeste",
   "dataNascimento": "2022-02-22",
   "cpf": "CPFTeste",
   "endereco": {
-    "id": 0, // Não mexer
     "cep": "18160000", // Necessário para a API ViaCEP poder gerar o endereço. 
     "logradouro": "Avenida Fortunatinho",
     "complemento": "TesteComplemento",
@@ -46,13 +38,12 @@ Exemplo de inserção de objetos para poder utilizar a API:
 ### Conta Corrente
 ```
 {
-  "id": 0, // Não mexer.
   "saldo": 3500,
   "cliente": {
-    "id": 1 // Necessário para poder utilizar o relacinamento entre as classes.
+    "id": 1 // Necessário para poder utilizar o relacionamento entre as classes.
   },
   "agencia": {
-    "id": 1 // Necessário para poder utilizar o relacinamento entre as classes.
+    "id": 1 // Necessário para poder utilizar o relacionamento entre as classes.
   },
   "credito": 1000,
   "chequeEspecial": 1500
@@ -62,13 +53,12 @@ Exemplo de inserção de objetos para poder utilizar a API:
 ### Conta Poupança
 ```
 {
-  "id": 0, // Não mexer.
   "saldo": 5000,
   "cliente": {
-    "id": 1 // Necessário para poder utilizar o relacinamento entre as classes.
+    "id": 1 // Necessário para poder utilizar o relacionamento entre as classes.
   },
   "agencia": {
-    "numero": 1 // Necessário para poder utilizar o relacinamento entre as classes.
+    "numero": 1 // Necessário para poder utilizar o relacionamento entre as classes.
   },
   "limite": 5
 }
